@@ -1,0 +1,15 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+}
+.feedback_title {
+  font-style: 24px;
+}
+
+.buttons {
+  border-radius: 5px;
+  background-color: rgb(119, 119, 212);
+  width: 200px;
+  height: 50px;
+  border: none;
+}
