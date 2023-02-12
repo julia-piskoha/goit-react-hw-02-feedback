@@ -1,14 +1,10 @@
 import Feedback from 'components/Feedback/Feedback';
 import React from 'react';
 class App extends React.Component {
-  static defaultProps = {
-    initialValue: 0,
-  };
-
   state = {
-    good: this.props.initialValue,
-    bad: this.props.initialValue,
-    neutral: this.props.initialValue,
+    good: 0,
+    bad: 0,
+    neutral: 0,
   };
 
   clickCounter = e => {
@@ -38,13 +34,7 @@ class App extends React.Component {
       );
     }
   };
-  clearState = () => {
-    this.setState({
-      good: this.props.initialValue,
-      bad: this.props.initialValue,
-      neutral: this.props.initialValue,
-    });
-  };
+
   countTotalFeedback = () => {
     return this.state.good + this.state.bad + this.state.neutral;
   };
@@ -59,7 +49,6 @@ class App extends React.Component {
         initialState={this.state}
         totalFunc={this.countTotalFeedback}
         parcentFunc={this.countPositiveFeedbackPercentage}
-        clearFunc={this.clearState}
       />
     );
   }

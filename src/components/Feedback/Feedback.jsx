@@ -3,27 +3,30 @@ import css from 'components/Feedback/Feedback.module.css';
 import FeedbackOptions from 'components/Feedback/FeedbackOptions';
 import Statistics from 'components/Feedback/Statistics';
 import PropTypes from 'prop-types';
-const Feedback = ({
-  onClickCounter,
-  initialState,
-  totalFunc,
-  parcentFunc,
-  //   clearFunc,
-}) => {
+import Section from './Section';
+import Notification from './Notification';
+const Feedback = ({ onClickCounter, initialState, totalFunc, parcentFunc }) => {
   return (
     <div className={css.feedback}>
-      <p className={css.feedback_title}>Please leave feedback</p>
-      <FeedbackOptions
-        options={Object.keys(initialState)}
-        onLeaveFeedback={onClickCounter}
-      />
-      <Statistics
-        good={initialState.good}
-        neutral={initialState.neutral}
-        bad={initialState.bad}
-        total={totalFunc()}
-        positivePercentage={parcentFunc()}
-      />
+      <Section className={css.feedback_title} title="Please leave feedback">
+        <FeedbackOptions
+          options={Object.keys(initialState)}
+          onLeaveFeedback={onClickCounter}
+        />
+      </Section>
+      <Section className={css.feedback_title} title="Statistics">
+        {totalFunc() > 0 ? (
+          <Statistics
+            good={initialState.good}
+            neutral={initialState.neutral}
+            bad={initialState.bad}
+            total={totalFunc()}
+            positivePercentage={parcentFunc()}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
+      </Section>
     </div>
   );
 };
@@ -32,7 +35,6 @@ Feedback.propTypes = {
   initialState: PropTypes.object,
   totalFunc: PropTypes.func,
   parcentFunc: PropTypes.func,
-  //   clearFunc: PropTypes.func,
 };
 
 export default Feedback;

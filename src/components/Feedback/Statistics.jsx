@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import css from './Feedback.module.css';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
@@ -13,7 +12,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
         <>
           <div>Total: {total}</div>
           <div>
-            Percentage:{' '}
+            Positive Feedback:{' '}
             {positivePercentage !== Infinity ? positivePercentage : 0}%
           </div>
         </>

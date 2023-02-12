@@ -2,14 +2,23 @@
   display: flex;
   flex-direction: column;
 }
-.feedback_title {
-  font-style: 24px;
-}
 
+.section {
+  color: rgb(42, 3, 78);
+  margin-left: 20px;
+  font-weight: 700;
+}
 .buttons {
+  display: flex;
+  gap: 10px;
+}
+button {
   border-radius: 5px;
-  background-color: rgb(119, 119, 212);
-  width: 200px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   border: none;
+  font-size: large;
+  font-weight: bold;
+  background-color: rgb(212, 161, 210);
+  color: rgb(83, 44, 119);
 }
